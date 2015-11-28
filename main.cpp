@@ -49,6 +49,7 @@ int main()
 {
 	Graph g;
 	vector<Vertex> list,a;
+
 	g.addVertex(Coor(10,10));
 	g.addVertex(Coor(10,50));
 	g.addVertex(Coor(50,50));
@@ -57,6 +58,7 @@ int main()
 	g.addVertex(Coor(80,80));
 	g.addVertex(Coor(80,10));
 	g.addVertex(Coor(80,50));
+
 
 	list=g.getVertexList();
 
@@ -78,5 +80,11 @@ int main()
 	for(unsigned int i =0;i<a.size();++i){
 		cout << "-x: " << a[i].getX() << " y: " << a[i].getY() << endl;
 	}
+	
+	Vertex node=Vertex(12,Coor(35,60));
+	cout<<"nearest vertex "<< g.nearestVertex(list,node)<<endl;
+
+	
+	
 	return 0;
 }
