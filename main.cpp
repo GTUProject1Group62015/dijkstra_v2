@@ -62,9 +62,9 @@ int main()
 		cout << "x: " << list[i].getX() << " y: " << list[i].getY() << endl;
 	}
 	a=g.shortestPath(list[0],list[5]);
-	cerr << "----------------------\n";
+	cout << "----------------------\n";
 	for(unsigned int i =0;i<a.size();++i){
-		cout << "x: " << a[i].getX() << " y: " << a[i].getY() << endl;
+		cout << "-x: " << a[i].getX() << " y: " << a[i].getY() << endl;
 	}
 	return 0;
 }

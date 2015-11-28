@@ -73,6 +73,12 @@ public:
 	 */
 	vector<Vertex> shortestPath(Vertex start, Vertex finish);
 
+	/** add vertex*/
+	bool addVertex(Coor coor);
+
+	/** set edge */
+	bool setEdge(Vertex vSource,Vertex vDest);
+
 private:
 	int directed;
 	int numV;
