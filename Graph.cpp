@@ -164,6 +164,5 @@ bool Graph::setEdge(Vertex vSource, Vertex vDest) {
 }
 
 void Graph::setVertex(Vertex &v, Coor newCoor) {
-	int no = v.getNo();
-	v.setVertex(no, newCoor.x, newCoor.y);
+	v.setVertex(newCoor.x, newCoor.y);
 }
