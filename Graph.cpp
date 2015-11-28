@@ -166,3 +166,13 @@ bool Graph::setEdge(Vertex vSource, Vertex vDest) {
 void Graph::setVertex(Vertex &v, Coor newCoor) {
 	v.setVertex(newCoor.x, newCoor.y);
 }
+
+
+bool Graph::removeEdge(Vertex &v){
+	if(data.size()<=v.getNo())
+	{
+		return false;
+	}
+	data[v.getNo()].clear();
+	return true;
+}

@@ -82,6 +82,9 @@ public:
 	/*set given vertex,no return value*/
 	void setVertex(Vertex &v,Coor newCoor);
 
+	/**remove connection of given Vertex,return true if successful*/
+	bool removeEdge(Vertex &v);
+
 private:
 	int directed;
 	int numV;
