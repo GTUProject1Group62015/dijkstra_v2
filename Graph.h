@@ -73,11 +73,14 @@ public:
 	 */
 	vector<Vertex> shortestPath(Vertex start, Vertex finish);
 
-	/** add vertex*/
-	bool addVertex(Coor coor);
+	/** add vertex,if addition is successful, return this Vertex reference,else returns 0*/
+	Vertex& addVertex(Coor coor);
 
 	/** set edge */
 	bool setEdge(Vertex vSource,Vertex vDest);
+
+	/*set given vertex,no return value*/
+	void Graph::setVertex(Vertex &v,Coor newCoor);
 
 private:
 	int directed;
