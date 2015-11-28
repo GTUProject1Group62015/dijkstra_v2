@@ -129,6 +129,8 @@ bool Graph::addVertex(Coor coor) {
 			return false;
 		}
 	}
+	vector<Edge> e;
+	data.push_back(e);
 	source_coor_index = numV;
 	vertexList.push_back(Vertex(source_coor_index, coor));
 	++numV;
@@ -140,9 +142,6 @@ bool Graph::setEdge(Vertex vSource, Vertex vDest) {
 	if (isEdge(vSource.getNo(), vDest.getNo())) {
 		return false;
 	}
-
-	vector<Edge> e;
-	data.push_back(e);
 
 	data[vSource.getNo()].push_back(
 			Edge(Vertex(vSource.getNo(),vSource.getX(),vSource.getY()),

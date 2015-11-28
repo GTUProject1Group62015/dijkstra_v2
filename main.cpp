@@ -49,18 +49,30 @@ int main()
 {
 	Graph g;
 	vector<Vertex> list,a;
-	g.add(Coor(10,10),Coor(10,50));
-	g.add(Coor(10,10),Coor(50,50));
-	g.add(Coor(10,50),Coor(10,80));
-	g.add(Coor(50,80),Coor(80,80));
-	g.add(Coor(50,50),Coor(80,10));
-	g.add(Coor(80,10),Coor(80,50));
-	g.add(Coor(80,50),Coor(80,80));
+	g.addVertex(Coor(10,10));
+	g.addVertex(Coor(10,50));
+	g.addVertex(Coor(50,50));
+	g.addVertex(Coor(10,80));
+	g.addVertex(Coor(50,80));
+	g.addVertex(Coor(80,80));
+	g.addVertex(Coor(80,10));
+	g.addVertex(Coor(80,50));
 
 	list=g.getVertexList();
+
+	g.setEdge(list[0],list[1]);
+	g.setEdge(list[0],list[2]);
+	g.setEdge(list[1],list[3]);
+	g.setEdge(list[4],list[5]);
+	g.setEdge(list[2],list[6]);
+	g.setEdge(list[6],list[7]);
+	g.setEdge(list[7],list[5]);
+
+
 	for(unsigned int i =0;i<list.size();++i){
 		cout << "x: " << list[i].getX() << " y: " << list[i].getY() << endl;
 	}
+
 	a=g.shortestPath(list[0],list[5]);
 	cout << "----------------------\n";
 	for(unsigned int i =0;i<a.size();++i){
