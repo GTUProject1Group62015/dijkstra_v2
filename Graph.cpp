@@ -9,6 +9,7 @@
 #include "Edge.h"
 #include "DijkstrasAlgorithm.h"
 #include <cstddef>
+#include <cmath>
 using namespace std;
 
 Graph::Graph(bool direct = true, int num = 0) :
@@ -176,3 +177,31 @@ bool Graph::removeEdge(Vertex &v){
 	data[v.getNo()].clear();
 	return true;
 }
+
+
+int Graph::nearestVertex(vector<Vertex> list,Vertex node)
+{
+	int nearestX;
+	int nearestY;
+	int index=0;
+
+	nearestX=fabs(node.getX()-list.at(0).getX());
+	nearestY=fabs(node.getX()-list.at(0).getY());
+
+	for(unsigned int i=1; i<list.size();i++)
+	{
+		if(abs(node.getX()-list.at(i).getX() )<nearestX)
+		{
+			if(abs(node.getY()-list.at(i).getY() )<nearestY)
+			{
+				nearestX=abs(node.getX()-list.at(i).getX() );
+				nearestY=abs(node.getY()-list.at(i).getY() );
+				index=i;
+			}
+		}
+	}
+
+	return index;
+}
+
+

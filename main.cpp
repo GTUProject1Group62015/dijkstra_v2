@@ -70,7 +70,7 @@ int main()
 
 
 	for(unsigned int i =0;i<list.size();++i){
-		cout << "x: " << list[i].getX() << " y: " << list[i].getY() << endl;
+		cout << "x: " << list[i].getX() << " y: " << list[i].getY() <<  "  index:"<< i << endl;
 	}
 
 	a=g.shortestPath(list[0],list[5]);
@@ -78,5 +78,8 @@ int main()
 	for(unsigned int i =0;i<a.size();++i){
 		cout << "-x: " << a[i].getX() << " y: " << a[i].getY() << endl;
 	}
+
+	Vertex node=Vertex(12,Coor(81,81));
+	cout<<"nearest vertex "<< g.nearestVertex(list,node)<<endl;
 	return 0;
 }

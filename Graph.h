@@ -85,6 +85,9 @@ public:
 	/**remove connection of given Vertex,return true if successful*/
 	bool removeEdge(Vertex &v);
 
+
+	int nearestVertex(vector<Vertex> list,Vertex node);
+
 private:
 	int directed;
 	int numV;
