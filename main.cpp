@@ -81,7 +81,7 @@ int main()
 		cout << "-x: " << a[i].getX() << " y: " << a[i].getY() << endl;
 	}
 	
-	Vertex node=Vertex(12,Coor(35,60));
+	Vertex node=Vertex(12,Coor(40,60));
 	cout<<"nearest vertex "<< g.nearestVertex(list,node)<<endl;
 
 	
