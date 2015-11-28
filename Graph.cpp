@@ -8,6 +8,9 @@
 #include "Graph.h"
 #include "Edge.h"
 #include "DijkstrasAlgorithm.h"
+#include <cstddef>
+using namespace std;
+
 Graph::Graph(bool direct = true, int num = 0) :
 		directed(direct), numV(num) {
 	vector<Edge> e;
@@ -126,15 +129,19 @@ Vertex& Graph::addVertex(Coor coor) {
 			source_coor_index = i;
 		}
 		if (source_coor_index != -1) {
-			return 0;
+			break;
 		}
 	}
-	vector<Edge> e;
-	data.push_back(e);
-	source_coor_index = numV;
-	vertexList.push_back(Vertex(source_coor_index, coor));
-	++numV;
-	return vertexList[numV-1];
+	if (source_coor_index == -1) {
+		vector<Edge> e;
+		data.push_back(e);
+		source_coor_index = numV;
+		vertexList.push_back(Vertex(source_coor_index, coor));
+		++numV;
+		return vertexList[numV - 1];
+	}
+	Vertex a;
+	return a;
 }
 
 /** set edge */
@@ -144,18 +151,19 @@ bool Graph::setEdge(Vertex vSource, Vertex vDest) {
 	}
 
 	data[vSource.getNo()].push_back(
-			Edge(Vertex(vSource.getNo(),vSource.getX(),vSource.getY()),
-					Vertex(vDest.getNo(),vDest.getX(),vDest.getY())));
+			Edge(Vertex(vSource.getNo(), vSource.getX(), vSource.getY()),
+					Vertex(vDest.getNo(), vDest.getX(), vDest.getY())));
 
 	if (!directed) {
 		data[vDest.getNo()].push_back(
-				Edge(Vertex(vDest.getNo(),vDest.getX(),vDest.getY()),
-						Vertex(vSource.getNo(),vSource.getX(),vSource.getY())));
+				Edge(Vertex(vDest.getNo(), vDest.getX(), vDest.getY()),
+						Vertex(vSource.getNo(), vSource.getX(),
+								vSource.getY())));
 	}
 	return true;
 }
 
-void Graph::setVertex(Vertex &v,Coor newCoor){
-	int no=v.getNo();
-	v.setVertex(no,newCoor.x,newCoor.y);
+void Graph::setVertex(Vertex &v, Coor newCoor) {
+	int no = v.getNo();
+	v.setVertex(no, newCoor.x, newCoor.y);
 }

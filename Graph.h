@@ -29,7 +29,7 @@ public:
 	}
 
 	/*return vertex list*/
-	inline vector<Vertex> getVertexList() {
+	inline vector<Vertex>& getVertexList() {
 		return vertexList;
 	}
 
@@ -80,7 +80,7 @@ public:
 	bool setEdge(Vertex vSource,Vertex vDest);
 
 	/*set given vertex,no return value*/
-	void Graph::setVertex(Vertex &v,Coor newCoor);
+	void setVertex(Vertex &v,Coor newCoor);
 
 private:
 	int directed;
